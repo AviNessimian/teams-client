@@ -1,0 +1,38 @@
+<section class="row mt-3 mb-5">
+    <div class="col-4">
+        <div class="card border-primary mt-3 shadow animated fadeIn" *ngIf="timepointAverages !== null">
+            <div class="card-header">
+                <div class="float-left">
+                    <h5 class="text-info">Time Point Averages</h5>
+                </div>
+            </div>
+            <div class="card-body my-custom-scrollbar">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" *ngFor="let timepointAverage of timepointAverages; index as i">
+                        <h6>Time Point<span class="badge badge-secondary">{{ timepointAverage.Timepoint }} </span></h6>
+
+                        <h6>Average Value<span
+                                class="badge badge-info">{{ timepointAverage.AverageValue | number:'1.2-2' }}</span>
+                        </h6>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-8">
+        <div class="card border-primary mt-3 shadow animated fadeIn" *ngIf="graph?.data !== null">
+            <div class="card-header">
+                <div class="float-left">
+                    <h5 class="text-info">Line Chart</h5>
+                </div>
+            </div>
+            <div class="card-body">
+                <plotly-plot [data]="graph.data" [layout]="graph.layout"></plotly-plot>
+            </div>
+        </div>
+
+
+    </div>
+
+</section>

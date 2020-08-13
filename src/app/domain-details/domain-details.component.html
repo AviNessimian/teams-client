@@ -1,0 +1,54 @@
+<article>
+  <section class="row">
+    <div class="col-12">
+      <div class="card border-primary mt-3 shadow animated fadeIn" *ngIf="domainValues !== null">
+        <div class="card-header">
+          <div class="float-left">
+            <h5 class="text-info">{{domainName}}</h5>
+          </div>
+
+          <div class="float-right">
+            <div class="form-group" placement="top" ngbTooltip="Page Size">
+              <select class="form-control form-control-sm" id="pageSizeSelectId" [(ngModel)]="pageSize" (ngModelChange)="pageSizeValueChange($event)">
+                <option>5</option>
+                <option>10</option>
+                <option>15</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="card-body text-primary">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Subject Id</th>
+                <th scope="col">Time Point</th>
+                <th scope="col">Numeric Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let domainValue of domainValues; index as i">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ domainValue.SubjectId }}</td>
+                <td>{{ domainValue.Timepoint }}</td>
+                <td>{{ domainValue.NumericValue }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer">
+          <ngb-pagination class="d-flex justify-content-center" [maxSize]="5" [collectionSize]="collactionCount" [(pageSize)]="pageSize" [(page)]="page"
+            [boundaryLinks]="true" (pageChange)="pageValueChange($event)"></ngb-pagination>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-3">
+    <app-time-point-average [domainName]="domainName"></app-time-point-average>
+  </section>
+
+
+
+</article>

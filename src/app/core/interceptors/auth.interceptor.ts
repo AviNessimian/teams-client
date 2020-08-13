@@ -62,6 +62,11 @@ export class AuthInterceptor implements HttpInterceptor {
               });
               break;
             }
+            case 503:{
+              let msg = JSON.parse(error.error).Message;
+              this._toastrService.error(msg);
+              break;
+            }
             case 500: case 0: {
               this._router.navigate(['internal-server-error']);
               break;

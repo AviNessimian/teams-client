@@ -31,10 +31,30 @@ export class TimePointAverageComponent implements OnInit {
             y: this.timepointAverages.map(a => a.AverageValue),
             type: 'scatter',
             mode: 'lines+points',
-            marker: { color: 'red' }
+            marker: { color: 'red' },
           },
         ],
-        // layout: { width: 320, height: 300, title: 'A Fancy Plot' }
+        layout: { 
+          // width: 320, 
+          // height: 300, 
+          // title: 'A Fancy Plot',
+          xaxis: {
+            title: "Timepoint",
+            titlefont: {
+              family: "Courier New, monospace",
+              size: 18,
+              color: "#17a2b8"
+            }
+          },
+          yaxis: {
+            title: "Average Value",
+            titlefont: {
+              family: "Courier New, monospace",
+              size: 18,
+              color: "#17a2b8"
+            }
+          }
+         }
       };
 
     });

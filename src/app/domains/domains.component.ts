@@ -13,7 +13,7 @@ export class DomainsComponent implements OnInit {
   ngOnInit() {
 
     this.domainValuesService.getDomainNames().subscribe(domainNames=>{
-      this.domainNames = domainNames
+      this.domainNames = domainNames.sort();
     });
   }
 

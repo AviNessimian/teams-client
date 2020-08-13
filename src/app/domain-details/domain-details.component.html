@@ -1,7 +1,7 @@
-<article>
+<article class="animated fadeIn" *ngIf="domainValues !== null">
   <section class="row">
     <div class="col-12">
-      <div class="card border-primary mt-3 shadow animated fadeIn" *ngIf="domainValues !== null">
+      <div class="card border-primary mt-3 shadow">
         <div class="card-header">
           <div class="float-left">
             <h5 class="text-info">{{domainName}}</h5>
@@ -45,10 +45,8 @@
     </div>
   </section>
 
-  <section class="mt-3">
+  <div class="mt-3">
     <app-time-point-average [domainName]="domainName"></app-time-point-average>
-  </section>
-
-
+  </div>
 
 </article>

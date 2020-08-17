@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { DomainValuesService } from '../core/services/DomainValuesService';
 import { CalculateTimepointsAverageRequest } from '../models/requests';
 import { TimepointAverage } from '../models/timepoint-average';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-time-point-average',
@@ -12,6 +13,7 @@ export class TimePointAverageComponent implements OnInit {
   @Input() domainName: string;
   timepointAverages: TimepointAverage[];
   graph: any;
+  selectedTimepointAverage: TimepointAverage;
 
   constructor(private domainValuesService: DomainValuesService) { }
 
@@ -31,10 +33,11 @@ export class TimePointAverageComponent implements OnInit {
             y: this.timepointAverages.map(a => a.AverageValue),
             type: 'scatter',
             mode: 'lines+points',
-            marker: { color: 'red' },
+            marker: { color: '#78C2AD' },
           },
         ],
-        layout: { 
+        layout: {
+          autosize: true,
           // width: 320, 
           // height: 300, 
           // title: 'A Fancy Plot',
@@ -43,7 +46,7 @@ export class TimePointAverageComponent implements OnInit {
             titlefont: {
               family: "Courier New, monospace",
               size: 18,
-              color: "#17a2b8"
+              color: "#aaa"
             }
           },
           yaxis: {
@@ -51,13 +54,19 @@ export class TimePointAverageComponent implements OnInit {
             titlefont: {
               family: "Courier New, monospace",
               size: 18,
-              color: "#17a2b8"
+              color: "#6cc3d5"
             }
           }
-         }
+        }
       };
 
     });
+  }
+
+  selectTimepointAverage(selectedTimepointAverage: TimepointAverage) {
+    this.selectedTimepointAverage = selectedTimepointAverage;
+    
+    if(!environment.production) console.log(this.selectedTimepointAverage);
   }
 
 }

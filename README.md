@@ -1,4 +1,4 @@
-# internet-teams-app
+# teams-app
 
 ##### [Go To Teams Server](https://github.com/AviNessimian/teams-api "Api")
 ___

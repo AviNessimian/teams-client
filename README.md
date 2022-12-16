@@ -1,6 +1,6 @@
 # internet-teams-app
 
-##### [Go To Internet Teams Server](https://github.com/AviNessimian/InternetTeamsSln "InternetTeamsSln")
+##### [Go To Teams Server](https://github.com/AviNessimian/InternetTeamsSln "InternetTeamsSln")
 ___
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.29.
 ___
